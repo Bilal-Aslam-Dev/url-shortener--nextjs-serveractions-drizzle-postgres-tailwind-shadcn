@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/providers/themeProvider";
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
@@ -15,7 +16,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
