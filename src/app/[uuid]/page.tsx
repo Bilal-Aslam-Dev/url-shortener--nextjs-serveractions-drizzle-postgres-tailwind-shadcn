@@ -1,17 +1,15 @@
 import { type UUIDParams } from "@/types/params/[uuid]";
 
-import { v4 as uuidv4 } from "uuid";
+import { notFound, redirect } from "next/navigation";
 
-import { redirect } from "next/navigation";
-import { shortenedUrls } from "@/server/db/schema";
-import { db } from "@/server/db";
+import { getOriginalUrl } from "@/data-access/shortenedUrls";
 
 export default async function UUID({ params }: UUIDParams) {
-  const urls = await db.select().from(shortenedUrls);
-  
-  console.log(params);
-  console.log(urls);
-  const redirectUrl = "https://www.google.com";
+  const result = await getOriginalUrl(params.uuid);
 
-  return redirect(redirectUrl);
+  if (!result?.originalUrl) {
+    return notFound();
+  }
+
+  return redirect(String(result.originalUrl));
 }

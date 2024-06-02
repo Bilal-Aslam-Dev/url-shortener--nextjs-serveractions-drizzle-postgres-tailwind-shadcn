@@ -23,6 +23,7 @@ export const shortenedUrls = createTable(
   {
     id: serial("id").primaryKey(),
     uuid: varchar("uuid", { length: 36 }).notNull(),
+    originalUrl: varchar("original_url", { length: 2048 }).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
@@ -32,6 +33,7 @@ export const shortenedUrls = createTable(
   },
   (table) => ({
     uuidIndex: index("uuid_idx").on(table.uuid),
+    originalUrlIndex: index("original_url_idx").on(table.originalUrl),
     createdAtIndex: index("created_at_idx").on(table.createdAt),
     updatedAtIndex: index("updated_at_idx").on(table.updatedAt),
   }),
