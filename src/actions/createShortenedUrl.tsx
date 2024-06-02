@@ -17,13 +17,8 @@ export async function createShortenedUrl(formData: FormData) {
   const url = formData.get("url") as string;
 
   const uuid = uuidv4().substring(0, 9);
-
-  const urlRegex = new RegExp(/^[a-zA-Z0-9\-]+(\.[a-zA-Z]{2,})+.*$/);
+  
   try {
-    if (!urlRegex.test(url)) {
-      throw new Error("Please enter a valid url");
-    }
-
     await db.insert(shortenedUrls).values({
       uuid: uuid,
       originalUrl: url.startsWith("https://") ? url : `https://${url}`,
