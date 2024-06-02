@@ -1,3 +1,4 @@
+import { FlashToaster } from "@/lib/flash-toaster";
 import { ThemeProvider } from "@/providers/themeProvider";
 import "@/styles/globals.css";
 
@@ -25,6 +26,8 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+
+        <FlashToaster />
       </body>
     </html>
   );

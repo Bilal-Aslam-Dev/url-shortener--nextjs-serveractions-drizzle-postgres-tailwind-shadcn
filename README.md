@@ -36,5 +36,5 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 3- [x] Create redirecting functionality on server side
 4- [x] Configure database
 5- [x] Create schema for shortened_urls table
-6- [ ] Create server action for shortening url using UUID
-7- [ ] Create server action for redirecing user using a UUID
+6- [x] Create server action for shortening url using UUID
+7- [x] Create server action for redirecing user using a UUID
