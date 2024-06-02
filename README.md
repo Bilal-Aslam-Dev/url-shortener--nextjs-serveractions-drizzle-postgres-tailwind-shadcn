@@ -31,11 +31,10 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 #Todo 
 
-1- [ ] Deploy
-2- [ ] Setup base layout
-3- [ ] Create redirecting functionality on client side
-4- [ ] Configure database
-5- [ ] Create schema for shortened_urls table
-6- [ ] Create api for shortening url using UUID
-7- [ ] Create api for fetching actual url using a UUID
-8- [ ] Integrate the url fetching api on frontend and redirect the user
+1- [x] Deploy
+2- [x] Setup base layout
+3- [x] Create redirecting functionality on server side
+4- [x] Configure database
+5- [x] Create schema for shortened_urls table
+6- [ ] Create server action for shortening url using UUID
+7- [ ] Create server action for redirecing user using a UUID

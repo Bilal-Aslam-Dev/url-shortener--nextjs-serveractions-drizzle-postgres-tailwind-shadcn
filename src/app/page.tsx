@@ -1,8 +1,9 @@
 import { DarkModeMenu } from "@/components/molecules/dark-mode-menu";
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
-    <main className="grid h-screen place-items-center">
+    <main className="grid h-[100dvh] place-items-center">
+      <h1 className="absolute left-1/2 top-16  sm:top-20 -translate-x-1/2 text-5xl font-semibold">Shorty</h1>
       <form
         action=""
         className="flex w-full max-w-[450px] flex-col items-center gap-2 px-2 sm:flex-row"
@@ -13,7 +14,7 @@ export default function HomePage() {
           type="text"
           placeholder="Enter URL"
         />
-        <button className="ring-offset-background focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center self-start whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:self-center">
+        <button className="ring-offset-background focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center self-end whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 sm:self-center">
           Generate
         </button>
       </form>

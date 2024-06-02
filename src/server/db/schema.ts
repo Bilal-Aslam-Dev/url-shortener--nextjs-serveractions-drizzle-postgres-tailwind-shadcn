@@ -18,17 +18,21 @@ import {
  */
 export const createTable = pgTableCreator((name) => `url-shortener_${name}`);
 
-export const posts = createTable(
-  "post",
+export const shortenedUrls = createTable(
+  "shortened_urls",
   {
     id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
+    uuid: varchar("uuid", { length: 36 }).notNull(),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
-    updatedAt: timestamp("updatedAt", { withTimezone: true }),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.name),
-  })
+  (table) => ({
+    uuidIndex: index("uuid_idx").on(table.uuid),
+    createdAtIndex: index("created_at_idx").on(table.createdAt),
+    updatedAtIndex: index("updated_at_idx").on(table.updatedAt),
+  }),
 );
